@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clickable Buttons in Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>✨ Real World Applications ✨</h1>
+
+<table class="main-table">
+
+    <tr>
+        <td class="card pink">
+            <h2>Change Text</h2>
+            <p id="textArea">Click a button below</p>
+            <button onclick="showTime()">Live Time</button>
+            <button onclick="showWeather()">Weather</button>
+            <button onclick="showQuote()">Quote</button>
+        </td>
+
+        <td class="card blue">
+            <h2>Change Link</h2>
+            <a id="link" href="#" target="_blank">Visit Website</a><br><br>
+            <button onclick="goSite('https://youtube.com','YouTube')">YouTube</button>
+            <button onclick="goSite('https://wikipedia.org','Wikipedia')">Wikipedia</button>
+            <button onclick="goSite('https://openai.com','OpenAI')">OpenAI</button>
+        </td>
+
+        <td class="card purple">
+            <h2>Change Input Type</h2>
+            <input id="inputBox" type="text" placeholder="Enter something"><br><br>
+            <button onclick="setType('email')">Email</button>
+            <button onclick="setType('password')">Password</button>
+            <button onclick="setType('text')">Text</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="card green">
+            <h2>Theme Switcher</h2>
+            <button onclick="toggleDark()">Toggle Dark Mode</button>
+        </td>
+
+        <td class="card orange">
+            <h2>Show / Hide</h2>
+            <p id="secret">This is hidden information</p>
+            <button onclick="hideText()">Hide</button>
+            <button onclick="showText()">Show</button>
+        </td>
+
+        <td class="card cyan">
+            <h2>Change Button Text</h2>
+            <button id="subBtn" onclick="subscribe()">Subscribe</button>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="card yellow">
+            <h2>Font Size</h2>
+            <p id="fontText">Change my size</p>
+            <button onclick="changeFont('big')">Increase</button>
+            <button onclick="changeFont('small')">Decrease</button>
+        </td>
+
+        <td class="card teal">
+            <h2>Resize Image</h2>
+            <img id="img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" width="200"><br>
+            <button onclick="resizeImg(300)">Zoom In</button>
+            <button onclick="resizeImg(150)">Zoom Out</button>
+        </td>
+
+        <td class="card violet">
+            <h2>Placeholder</h2>
+            <input id="placeInput" type="text" placeholder="Type here"><br><br>
+            <button onclick="setPlaceholder('Username')">Login</button>
+            <button onclick="setPlaceholder('Search Products')">Search</button>
+        </td>
+    </tr>
+
+</table>
+
+<script>
+function showTime(){
+    document.getElementById("textArea").innerHTML =
+    "Time: " + new Date().toLocaleTimeString();
+}
+
+function showWeather(){
+    document.getElementById("textArea").innerHTML =
+    "Weather: Sunny ☀ 28°C";
+}
+
+function showQuote(){
+    document.getElementById("textArea").innerHTML =
+    "Consistency beats motivation.";
+}
+
+function goSite(url, name){
+    let link = document.getElementById("link");
+    link.href = url;
+    link.innerHTML = "Visit " + name;
+}
+
+function setType(type){
+    document.getElementById("inputBox").type = type;
+}
+
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+
+function hideText(){
+    document.getElementById("secret").style.display = "none";
+}
+
+function showText(){
+    document.getElementById("secret").style.display = "block";
+}
+
+function subscribe(){
+    document.getElementById("subBtn").innerHTML = "Subscribed ✔";
+}
+
+function changeFont(size){
+    document.getElementById("fontText").style.fontSize =
+    size === 'big' ? '22px' : '14px';
+}
+
+function resizeImg(size){
+    document.getElementById("img").width = size;
+}
+
+function setPlaceholder(text){
+    document.getElementById("placeInput").placeholder = text;
+}
+</script>
+
+</body>
+</html>
